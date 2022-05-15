@@ -41,7 +41,7 @@ const Button = styled.button`
   border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
-  text-transform: inherit;
+  text-transform: uppercase;
   letter-spacing: inherit;
   padding: 10px;
   cursor: pointer;

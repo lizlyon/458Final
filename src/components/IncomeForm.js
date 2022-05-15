@@ -17,7 +17,7 @@ export default function IncomeForm({ onConfirm }) {
         onChange={(e) => setIncome(e.target.value)}
       />
       <Spacer width={80} />
-      <Button>Submit</Button>
+      {/* <Button>Submit</Button> */}
     </Form>
   );
 }
@@ -40,19 +40,19 @@ const Spacer = styled.div`
   width: ${(p) => p.width}px;
 `;
 
-const Button = styled.button`
-  background: transparent;
-  width: 25%;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: inherit;
-  letter-spacing: inherit;
-  padding: 5px;
-  cursor: pointer;
+// const Button = styled.button`
+//   background: transparent;
+//   width: 25%;
+//   border-radius: 20px;
+//   font-size: 1rem;
+//   font-weight: 500;
+//   text-transform: inherit;
+//   letter-spacing: inherit;
+//   padding: 5px;
+//   cursor: pointer;
 
-  &:hover {
-    background-color: lightcoral;
-    color: black;
-  }
-`;
+//   &:hover {
+//     background-color: lightcoral;
+//     color: black;
+//   }
+// `;

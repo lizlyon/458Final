@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ExpenseForm from "./ExpenseForm";
-import Expenses from "./Expenses";
-import IncomeForm from "./IncomeForm";
+import ExpenseForm from "..components/ExpenseForm";
+import Expenses from "..components/Expenses";
+import IncomeForm from "..components/IncomeForm";
 import "./styles.css";
 import styled from "styled-components";
 
@@ -36,27 +36,30 @@ export default function App() {
 
   return (
     <Wrapper>
-      <h1>Income and Expense Tracker</h1>
-      <div>
-        {income === null && (
-          <IncomeForm onConfirm={(newIncome) => setIncome(newIncome)} />
-        )}
-        {income !== null && <span>${income}</span>}
-        <ExpenseForm onConfirm={addExpense} />
-        <Expenses expenses={expenses} onRemove={removeExpense} />
-        {(income !== null || expenses.length > 0) && (
-          <Button onClick={reset}>Reset All</Button>
-        )}
-        {(income !== null || expenses.length > 0) && (
-          <div class="remaining">
-            Remaining Income: $
-            {income -
-              expenses.reduce((acc, expense) => {
-                return +expense.cost + acc;
-              }, 0)}
-          </div>
-        )}
-      </div>
+      <Border>
+        <h2>Welcome (user.email) </h2>
+        <h1>Income and Expense Tracker</h1>
+        <div>
+          {income === null && (
+            <IncomeForm onConfirm={(newIncome) => setIncome(newIncome)} />
+          )}
+          {income !== null && <span>${income}</span>}
+          <ExpenseForm onConfirm={addExpense} />
+          <Expenses expenses={expenses} onRemove={removeExpense} />
+          {(income !== null || expenses.length > 0) && (
+            <Button onClick={reset}>Reset All</Button>
+          )}
+          {(income !== null || expenses.length > 0) && (
+            <div class="remaining">
+              Remaining Income: $
+              {income -
+                expenses.reduce((acc, expense) => {
+                  return +expense.cost + acc;
+                }, 0)}
+            </div>
+          )}
+        </div>
+      </Border>
     </Wrapper>
   );
 }
@@ -70,14 +73,27 @@ const Wrapper = styled.main`
 
   h1 {
     color: blue;
+    font-family: "Roboto", sans-serif;
   }
 
   div {
     font-size: 25px;
     font-family: sans-serif;
   }
+`;
+
+const Border = styled.div`
+  background-color: lightcyan;
+  color: black;
+  height: min(90%, 900px);
+  width: auto;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
 
   .remaining {
+    position: absolute;
+    top: 165px;
+    right: 350px;
   }
 `;
 
